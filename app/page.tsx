@@ -35,9 +35,10 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 function NavLinks() {
   return (
     <nav className="flex items-center space-x-6">
+      <NavLink href="#products">Products</NavLink>
       <NavLink href="#features">Features</NavLink>
       <NavLink href="#specs">Specs</NavLink>
-      <Button variant="outline">Buy Now</Button>
+      <Button variant="outline">Shop Now</Button>
     </nav>
   );
 }
@@ -47,7 +48,7 @@ function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="text-xl font-semibold text-gray-900">
-          Cold Plunge
+          Nordic Wellness
         </Link>
         <NavLinks />
       </div>
@@ -59,14 +60,14 @@ function HeroContent() {
   return (
     <div className="lg:pr-8">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
-        Transform Your Recovery
+        Transform Your Wellness Journey
       </h1>
       <p className="text-lg text-gray-600 mb-8">
-        Experience the ultimate cold therapy solution. Our premium Cold Plunge combines 
-        elegant design with powerful temperature control for optimal wellness.
+        Experience the ultimate in hot and cold therapy. Our premium Cold Plunge and Sauna 
+        solutions combine elegant design with precise temperature control for optimal wellness.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button className="text-base w-full sm:w-auto">Buy Now - $4,990</Button>
+        <Button className="text-base w-full sm:w-auto">View Products</Button>
         <Button variant="secondary" className="text-base w-full sm:w-auto group">
           Learn More
           <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -78,14 +79,25 @@ function HeroContent() {
 
 function HeroImage() {
   return (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
-      <Image
-        src="https://utfs.io/f/zFibHTZPUFWoA0YtlexquEYGaL7xyjHCWm236vDwXepF5rVo"
-        alt="Cold Plunge"
-        fill
-        className="object-cover"
-        priority
-      />
+    <div className="grid grid-cols-2 gap-4">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+        <Image
+          src="https://utfs.io/f/zFibHTZPUFWoA0YtlexquEYGaL7xyjHCWm236vDwXepF5rVo"
+          alt="Cold Plunge"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+        <Image
+          src="https://0of0d6zzu4.ufs.sh/f/zFibHTZPUFWoIUuWFrALat2DnrB3K5WpjdZfAhJSXTcwioGP"
+          alt="Sauna"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
     </div>
   );
 }
@@ -106,8 +118,8 @@ function HeroSection() {
 const features = [
   {
     icon: Waves,
-    title: 'Advanced Cooling',
-    description: 'Maintains perfect temperature between 39-55°F (4-13°C)'
+    title: 'Temperature Control',
+    description: 'Perfect temperatures for both cold plunge (39-55°F) and sauna (150-185°F)'
   },
   {
     icon: Thermometer,
@@ -117,12 +129,12 @@ const features = [
   {
     icon: Timer,
     title: 'Quick Setup',
-    description: 'Ready to use in under 15 minutes, no plumbing required'
+    description: 'Ready to use in under 15 minutes, minimal installation required'
   },
   {
     icon: Heart,
     title: 'Health Benefits',
-    description: 'Enhance recovery, reduce inflammation, improve sleep'
+    description: 'Enhance recovery, reduce inflammation, improve circulation and sleep'
   }
 ];
 
@@ -161,32 +173,63 @@ function ProductFeatures() {
 
 function ProductShowcase() {
   return (
-    <section className="py-16 sm:py-24">
+    <section id="products" className="py-16 sm:py-24">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-square overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
-            <Image
-              src="https://utfs.io/f/zFibHTZPUFWozoaW26ZPUFWo7hj4BuK1SEryAYfzNepIl82L"
-              alt="Cold Plunge Product"
-              fill
-              className="object-cover"
-            />
+        <div className="grid grid-cols-1 gap-24">
+          {/* Cold Plunge Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-square overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+              <Image
+                src="https://utfs.io/f/zFibHTZPUFWozoaW26ZPUFWo7hj4BuK1SEryAYfzNepIl82L"
+                alt="Cold Plunge Product"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Cold Plunge - $10,000</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Our Cold Plunge tub combines cutting-edge technology with elegant design. 
+                The powerful cooling system maintains your desired temperature, while the 
+                sleek exterior complements any space.
+              </p>
+              <ul className="space-y-4">
+                {['Marine-grade stainless steel interior', 'Energy-efficient cooling system', 'Built-in filtration system', 'Smart temperature control'].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-2 text-gray-600">
+                    <ChevronRight className="w-5 h-5 text-gray-400" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Engineered for Excellence</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Our Cold Plunge tub combines cutting-edge technology with elegant design. 
-              The powerful cooling system maintains your desired temperature, while the 
-              sleek exterior complements any space.
-            </p>
-            <ul className="space-y-4">
-              {['Marine-grade stainless steel interior', 'Energy-efficient cooling system', 'Built-in filtration system', 'Smart temperature control'].map((feature, index) => (
-                <li key={index} className="flex items-center gap-2 text-gray-600">
-                  <ChevronRight className="w-5 h-5 text-gray-400" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+
+          {/* Sauna Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Barrel Sauna - $18,000</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Experience traditional Finnish sauna therapy with our premium barrel sauna. 
+                Crafted from high-quality cedar and equipped with advanced heating technology 
+                for the perfect sauna experience.
+              </p>
+              <ul className="space-y-4">
+                {['Premium cedar construction', 'Electric heater included', 'Built-in temperature control', 'Spacious interior for 4-6 people'].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-2 text-gray-600">
+                    <ChevronRight className="w-5 h-5 text-gray-400" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative aspect-square overflow-hidden rounded-lg border border-gray-200 bg-gray-50 order-1 lg:order-2">
+              <Image
+                src="https://0of0d6zzu4.ufs.sh/f/zFibHTZPUFWoYddcX2Oit3WBTk29YDlVCZhKc6FJPrfgAbL7"
+                alt="Sauna Product"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -195,13 +238,14 @@ function ProductShowcase() {
 }
 
 const specifications = [
-  { label: "Dimensions", value: '67" L x 31.5" W x 24" H' },
-  { label: "Water Capacity", value: "100 Gallons" },
-  { label: "Temperature Range", value: "39°F - 55°F" },
-  { label: "Power", value: "110V, 15 Amp Circuit" },
-  { label: "Interior Material", value: "Marine Grade Stainless Steel" },
-  { label: "Exterior Material", value: "Weather Resistant Metal" },
-  { label: "Trim", value: "Premium Hardwood" },
+  { label: "Cold Plunge Dimensions", value: '67" L x 31.5" W x 24" H' },
+  { label: "Cold Plunge Capacity", value: "100 Gallons" },
+  { label: "Cold Plunge Temp Range", value: "39°F - 55°F" },
+  { label: "Cold Plunge Power", value: "110V, 15 Amp Circuit" },
+  { label: "Sauna Dimensions", value: '6\' W x 8\' L x 7\' H' },
+  { label: "Sauna Capacity", value: "4-6 People" },
+  { label: "Sauna Temp Range", value: "150°F - 185°F" },
+  { label: "Sauna Power", value: "220V, 30 Amp Circuit" },
   { label: "Warranty", value: "5 Year Limited" }
 ];
 
@@ -228,13 +272,13 @@ function CTASection() {
     <section className="py-16 sm:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Transform Your Recovery?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Transform Your Wellness Journey?</h2>
           <p className="text-lg text-gray-600 mb-8">
-            Join thousands of athletes and health enthusiasts who have made Cold Plunge 
-            an essential part of their wellness routine.
+            Join thousands of wellness enthusiasts who have made Nordic Wellness products
+            an essential part of their health routine.
           </p>
           <Button className="text-base px-8 py-3 h-auto">
-            Order Your Cold Plunge Today
+            Shop Nordic Wellness Today
           </Button>
         </div>
       </div>
@@ -246,7 +290,7 @@ function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between">
-        <span className="text-sm text-gray-500 mb-4 md:mb-0">© 2024 Cold Plunge. All rights reserved.</span>
+        <span className="text-sm text-gray-500 mb-4 md:mb-0">© 2024 Nordic Wellness. All rights reserved.</span>
         <div className="flex space-x-6">
           <a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200">Privacy Policy</a>
           <a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200">Terms of Service</a>
