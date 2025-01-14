@@ -67,11 +67,9 @@ function HeroContent() {
         solutions combine elegant design with precise temperature control for optimal wellness.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button className="text-base w-full sm:w-auto">View Products</Button>
-        <Button variant="secondary" className="text-base w-full sm:w-auto group">
-          Learn More
-          <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Button>
+        <Link href="#products">
+          <Button className="text-base w-full sm:w-auto">View Products</Button>
+        </Link>
       </div>
     </div>
   );
